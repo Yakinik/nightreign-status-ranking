@@ -15,8 +15,23 @@
   letter-spacing: 0.05em;
 }
 
-.subtitle {
+.footer {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.disclaimer {
   font-size: 14px;
   color: #6a6a8a;
   margin: 8px 0 0;
+}
+
+.link {
+  color: #c8b88a;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.link:hover {
+  text-decoration: none;
 }

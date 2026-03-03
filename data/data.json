@@ -530,7 +530,24 @@
         },
         {
           "name": "持久力/技量上昇、知力/神秘低下",
-          "diff": { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 }
+          "diff": { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 },
+          "diffByLevel": [
+            { "endurance": 1, "dexterity": 9, "intelligence": 0, "arcane": -5 },
+            { "endurance": 1, "dexterity": 11, "intelligence": 0, "arcane": -6 },
+            { "endurance": 1, "dexterity": 15, "intelligence": -1, "arcane": -7 },
+            { "endurance": 2, "dexterity": 20, "intelligence": -1, "arcane": -9 },
+            { "endurance": 2, "dexterity": 22, "intelligence": -2, "arcane": -10 },
+            { "endurance": 3, "dexterity": 24, "intelligence": -2, "arcane": -11 },
+            { "endurance": 3, "dexterity": 28, "intelligence": -2, "arcane": -13 },
+            { "endurance": 4, "dexterity": 30, "intelligence": -2, "arcane": -14 },
+            { "endurance": 4, "dexterity": 34, "intelligence": -3, "arcane": -15 },
+            { "endurance": 5, "dexterity": 36, "intelligence": -3, "arcane": -17 },
+            { "endurance": 5, "dexterity": 39, "intelligence": -3, "arcane": -18 },
+            { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 },
+            { "endurance": 6, "dexterity": 40, "intelligence": -3, "arcane": -20 },
+            { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 },
+            { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 }
+          ]
         }
       ]
     },
