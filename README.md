@@ -1,0 +1,1 @@
+# nightreign-status-ranking
