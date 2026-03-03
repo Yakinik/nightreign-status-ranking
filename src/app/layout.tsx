@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NIGHTREIGN ステータスランキング",
-  description: "ELDEN RING: NIGHTREIGN キャラクターステータス比較ツール",
+  title: "Nightreign ステータスランキング",
+  description: "ELDEN RING: Nightreign キャラクターステータス比較ツール",
 };
 
 export default function RootLayout({

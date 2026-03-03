@@ -1,8 +1,8 @@
-# ELDEN RING: NIGHTREIGN ステータスランキング
+# ELDEN RING: Nightreign ステータスランキング
 
 ## 概要
 
-ELDEN RING: NIGHTREIGN の全10キャラクターのステータスを比較するシングルページアプリケーション。
+ELDEN RING: Nightreign の全10キャラクターのステータスを比較するシングルページアプリケーション。
 レベル(1-15)ごとの能力値、遺物による変動、派生ステータス(HP/FP/スタミナ)をランキング表示する。
 
 ## 技術スタック

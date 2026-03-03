@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
+
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'export',
+  ...(isGitHubPages && { basePath: '/nightreign-status-ranking' }),
 };
 
 export default nextConfig;

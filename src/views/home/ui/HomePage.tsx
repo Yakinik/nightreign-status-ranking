@@ -7,7 +7,7 @@ export function HomePage() {
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.title}>NIGHTREIGN ステータスランキング</h1>
+        <h1 className={styles.title}>Nightreign ステータスランキング</h1>
       </header>
       <RankingTable />
       <footer className={styles.footer}>
