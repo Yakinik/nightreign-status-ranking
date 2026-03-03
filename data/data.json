@@ -1,0 +1,568 @@
+{
+  "metadata": {
+    "formulas": {
+      "HP": "80 + vigor * 20",
+      "FP": "45 + mind * 5",
+      "stamina": "48 + endurance * 2"
+    },
+    "statKeys": ["vigor", "mind", "endurance", "strength", "dexterity", "intelligence", "faith", "arcane"]
+  },
+  "characters": [
+    {
+      "name": "追跡者",
+      "levels": [
+        [1,  8,  4,  3,  5,  4,  2,  2, 10],
+        [2, 16,  6,  6, 18, 15,  4,  4, 10],
+        [3, 19,  7,  7, 20, 17,  4,  4, 10],
+        [4, 22,  8,  9, 23, 19,  5,  5, 10],
+        [5, 25,  9, 11, 25, 21,  6,  6, 10],
+        [6, 28, 10, 13, 28, 23,  7,  7, 10],
+        [7, 31, 11, 15, 31, 25,  8,  8, 10],
+        [8, 34, 12, 16, 33, 27,  8,  8, 10],
+        [9, 37, 13, 18, 36, 29,  9,  9, 10],
+        [10, 40, 14, 20, 38, 31, 10, 10, 10],
+        [11, 43, 15, 22, 41, 33, 11, 11, 10],
+        [12, 46, 16, 24, 44, 35, 12, 12, 10],
+        [13, 48, 17, 25, 46, 36, 13, 13, 10],
+        [14, 50, 18, 26, 48, 38, 14, 14, 10],
+        [15, 52, 19, 27, 50, 40, 15, 15, 10]
+      ],
+      "relics": [
+        {
+          "name": "精神力上昇、生命力低下",
+          "diffByLevel": [
+            { "vigor": -1, "mind": 1 },
+            { "vigor": -1, "mind": 1 },
+            { "vigor": -1, "mind": 2 },
+            { "vigor": -2, "mind": 3 },
+            { "vigor": -2, "mind": 4 },
+            { "vigor": -2, "mind": 5 },
+            { "vigor": -3, "mind": 5 },
+            { "vigor": -3, "mind": 6 },
+            { "vigor": -3, "mind": 7 },
+            { "vigor": -4, "mind": 8 },
+            { "vigor": -4, "mind": 9 },
+            { "vigor": -5, "mind": 10 },
+            { "vigor": -5, "mind": 10 },
+            { "vigor": -5, "mind": 10 },
+            { "vigor": -5, "mind": 10 }
+          ]
+        },
+        {
+          "name": "知力/信仰上昇、筋力/技量低下",
+          "diffByLevel": [
+            { "strength": -1, "dexterity": -1, "intelligence": 1, "faith": 1 },
+            { "strength": -1, "dexterity": -1, "intelligence": 2, "faith": 2 },
+            { "strength": -2, "dexterity": -1, "intelligence": 3, "faith": 3 },
+            { "strength": -2, "dexterity": -2, "intelligence": 4, "faith": 4 },
+            { "strength": -3, "dexterity": -2, "intelligence": 6, "faith": 6 },
+            { "strength": -3, "dexterity": -3, "intelligence": 7, "faith": 7 },
+            { "strength": -4, "dexterity": -3, "intelligence": 8, "faith": 8 },
+            { "strength": -4, "dexterity": -3, "intelligence": 9, "faith": 9 },
+            { "strength": -5, "dexterity": -3, "intelligence": 11, "faith": 11 },
+            { "strength": -5, "dexterity": -4, "intelligence": 12, "faith": 12 },
+            { "strength": -6, "dexterity": -4, "intelligence": 13, "faith": 13 },
+            { "strength": -7, "dexterity": -5, "intelligence": 15, "faith": 15 },
+            { "strength": -7, "dexterity": -5, "intelligence": 15, "faith": 15 },
+            { "strength": -7, "dexterity": -5, "intelligence": 15, "faith": 15 },
+            { "strength": -7, "dexterity": -5, "intelligence": 15, "faith": 15 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "守護者",
+      "levels": [
+        [1, 10,  2,  6,  4,  3,  2,  3, 10],
+        [2, 19,  3, 12, 11,  9,  2,  5, 10],
+        [3, 22,  3, 14, 13, 10,  3,  6, 10],
+        [4, 26,  4, 16, 16, 12,  4,  7, 10],
+        [5, 29,  5, 18, 18, 14,  4,  8, 10],
+        [6, 33,  6, 20, 21, 15,  5, 10, 10],
+        [7, 36,  7, 22, 23, 17,  5, 11, 10],
+        [8, 40,  7, 24, 26, 19,  6, 12, 10],
+        [9, 43,  8, 26, 28, 20,  6, 14, 10],
+        [10, 47,  9, 28, 31, 22,  7, 15, 10],
+        [11, 50, 10, 30, 33, 24,  7, 16, 10],
+        [12, 54, 11, 33, 36, 26,  8, 18, 10],
+        [13, 56, 12, 34, 37, 27,  8, 19, 10],
+        [14, 58, 13, 36, 39, 29,  9, 20, 10],
+        [15, 60, 14, 38, 41, 31, 10, 21, 10]
+      ],
+      "relics": [
+        {
+          "name": "筋力/技量上昇、生命力低下",
+          "diffByLevel": [
+            { "vigor": -1, "strength": 1, "dexterity": 2 },
+            { "vigor": -1, "strength": 1, "dexterity": 3 },
+            { "vigor": -2, "strength": 2, "dexterity": 5 },
+            { "vigor": -2, "strength": 3, "dexterity": 6 },
+            { "vigor": -3, "strength": 3, "dexterity": 8 },
+            { "vigor": -4, "strength": 4, "dexterity": 9 },
+            { "vigor": -4, "strength": 5, "dexterity": 11 },
+            { "vigor": -5, "strength": 6, "dexterity": 12 },
+            { "vigor": -6, "strength": 6, "dexterity": 14 },
+            { "vigor": -6, "strength": 7, "dexterity": 15 },
+            { "vigor": -7, "strength": 8, "dexterity": 17 },
+            { "vigor": -8, "strength": 9, "dexterity": 19 },
+            { "vigor": -8, "strength": 9, "dexterity": 19 },
+            { "vigor": -8, "strength": 9, "dexterity": 19 },
+            { "vigor": -8, "strength": 9, "dexterity": 19 }
+          ]
+        },
+        {
+          "name": "精神力/信仰上昇、生命力低下",
+          "diffByLevel": [
+            { "vigor": -1, "mind": 1, "faith": 2 },
+            { "vigor": -1, "mind": 1, "faith": 3 },
+            { "vigor": -1, "mind": 2, "faith": 4 },
+            { "vigor": -2, "mind": 2, "faith": 6 },
+            { "vigor": -2, "mind": 3, "faith": 7 },
+            { "vigor": -3, "mind": 4, "faith": 8 },
+            { "vigor": -3, "mind": 4, "faith": 10 },
+            { "vigor": -4, "mind": 5, "faith": 11 },
+            { "vigor": -4, "mind": 6, "faith": 12 },
+            { "vigor": -5, "mind": 6, "faith": 14 },
+            { "vigor": -5, "mind": 7, "faith": 15 },
+            { "vigor": -6, "mind": 8, "faith": 17 },
+            { "vigor": -6, "mind": 8, "faith": 17 },
+            { "vigor": -6, "mind": 8, "faith": 17 },
+            { "vigor": -6, "mind": 8, "faith": 17 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "鉄の目",
+      "levels": [
+        [1,  6,  2,  4,  4,  8,  2,  2, 13],
+        [2, 12,  3,  7,  7, 20,  3,  3, 13],
+        [3, 14,  3,  8,  8, 23,  3,  3, 13],
+        [4, 16,  4, 10,  9, 26,  3,  4, 13],
+        [5, 18,  5, 12, 10, 29,  3,  5, 13],
+        [6, 20,  6, 14, 11, 32,  4,  5, 13],
+        [7, 23,  7, 16, 12, 35,  4,  6, 13],
+        [8, 25,  7, 17, 13, 38,  4,  7, 13],
+        [9, 27,  8, 19, 14, 41,  5,  7, 13],
+        [10, 29,  9, 21, 15, 44,  5,  8, 13],
+        [11, 31, 10, 23, 16, 47,  5,  9, 13],
+        [12, 34, 11, 25, 17, 51,  6, 10, 13],
+        [13, 35, 12, 26, 17, 53,  6, 11, 13],
+        [14, 36, 13, 27, 18, 55,  6, 12, 13],
+        [15, 37, 14, 28, 19, 57,  7, 13, 13]
+      ],
+      "relics": [
+        {
+          "name": "生命力/筋力上昇、技量低下",
+          "diffByLevel": [
+            { "vigor": 1, "strength": 2, "dexterity": -2 },
+            { "vigor": 1, "strength": 3, "dexterity": -3 },
+            { "vigor": 1, "strength": 5, "dexterity": -4 },
+            { "vigor": 2, "strength": 6, "dexterity": -5 },
+            { "vigor": 2, "strength": 8, "dexterity": -6 },
+            { "vigor": 2, "strength": 10, "dexterity": -7 },
+            { "vigor": 3, "strength": 11, "dexterity": -8 },
+            { "vigor": 3, "strength": 13, "dexterity": -9 },
+            { "vigor": 3, "strength": 15, "dexterity": -10 },
+            { "vigor": 4, "strength": 16, "dexterity": -11 },
+            { "vigor": 4, "strength": 18, "dexterity": -12 },
+            { "vigor": 5, "strength": 20, "dexterity": -13 },
+            { "vigor": 5, "strength": 20, "dexterity": -13 },
+            { "vigor": 5, "strength": 20, "dexterity": -13 },
+            { "vigor": 5, "strength": 20, "dexterity": -13 }
+          ]
+        },
+        {
+          "name": "神秘上昇、技量低下",
+          "diffByLevel": [
+            { "dexterity": -1, "arcane": 2 },
+            { "dexterity": -1, "arcane": 3 },
+            { "dexterity": -2, "arcane": 4 },
+            { "dexterity": -3, "arcane": 5 },
+            { "dexterity": -3, "arcane": 6 },
+            { "dexterity": -4, "arcane": 7 },
+            { "dexterity": -5, "arcane": 9 },
+            { "dexterity": -6, "arcane": 10 },
+            { "dexterity": -6, "arcane": 11 },
+            { "dexterity": -7, "arcane": 12 },
+            { "dexterity": -8, "arcane": 13 },
+            { "dexterity": -9, "arcane": 15 },
+            { "dexterity": -9, "arcane": 15 },
+            { "dexterity": -9, "arcane": 15 },
+            { "dexterity": -9, "arcane": 15 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "レディ",
+      "levels": [
+        [1,  7,  6,  3,  2,  5,  4,  3, 11],
+        [2, 13,  9,  4,  4, 13,  8,  6, 11],
+        [3, 15, 10,  5,  4, 15, 10,  7, 11],
+        [4, 17, 12,  6,  5, 18, 13,  9, 11],
+        [5, 19, 13,  7,  5, 20, 16, 11, 11],
+        [6, 21, 15,  8,  6, 23, 19, 13, 11],
+        [7, 24, 16,  9,  6, 25, 22, 15, 11],
+        [8, 26, 18, 10,  7, 28, 24, 16, 11],
+        [9, 28, 19, 11,  7, 30, 27, 18, 11],
+        [10, 30, 21, 12,  8, 33, 30, 20, 11],
+        [11, 32, 22, 13,  8, 35, 33, 22, 11],
+        [12, 35, 24, 14,  9, 38, 36, 24, 11],
+        [13, 36, 25, 15,  9, 40, 38, 25, 11],
+        [14, 37, 26, 16, 10, 42, 40, 26, 11],
+        [15, 39, 27, 18, 11, 45, 42, 27, 11]
+      ],
+      "relics": [
+        {
+          "name": "生命力/筋力上昇、精神力低下",
+          "diffByLevel": [
+            { "vigor": 1, "mind": -3, "strength": 2 },
+            { "vigor": 1, "mind": -3, "strength": 4 },
+            { "vigor": 1, "mind": -4, "strength": 6 },
+            { "vigor": 1, "mind": -5, "strength": 8 },
+            { "vigor": 1, "mind": -6, "strength": 10 },
+            { "vigor": 1, "mind": -7, "strength": 12 },
+            { "vigor": 2, "mind": -8, "strength": 14 },
+            { "vigor": 2, "mind": -9, "strength": 16 },
+            { "vigor": 2, "mind": -10, "strength": 18 },
+            { "vigor": 2, "mind": -11, "strength": 20 },
+            { "vigor": 2, "mind": -12, "strength": 22 },
+            { "vigor": 3, "mind": -14, "strength": 24 },
+            { "vigor": 3, "mind": -14, "strength": 24 },
+            { "vigor": 3, "mind": -14, "strength": 24 },
+            { "vigor": 3, "mind": -14, "strength": 24 }
+          ]
+        },
+        {
+          "name": "精神力/信仰上昇、知力低下",
+          "diffByLevel": [
+            { "mind": 1, "intelligence": -1, "faith": 2 },
+            { "intelligence": -1, "faith": 3 },
+            { "mind": 1, "intelligence": -1, "faith": 4 },
+            { "mind": 1, "intelligence": -2, "faith": 5 },
+            { "mind": 1, "intelligence": -2, "faith": 6 },
+            { "mind": 1, "intelligence": -2, "faith": 7 },
+            { "mind": 2, "intelligence": -3, "faith": 8 },
+            { "mind": 2, "intelligence": -3, "faith": 9 },
+            { "mind": 2, "intelligence": -3, "faith": 10 },
+            { "mind": 2, "intelligence": -4, "faith": 11 },
+            { "mind": 2, "intelligence": -4, "faith": 12 },
+            { "mind": 3, "intelligence": -5, "faith": 13 },
+            { "mind": 3, "intelligence": -5, "faith": 13 },
+            { "mind": 3, "intelligence": -5, "faith": 13 },
+            { "mind": 3, "intelligence": -5, "faith": 13 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "無頼漢",
+      "levels": [
+        [1,  9,  2,  6,  9,  4,  1,  2, 10],
+        [2, 18,  3, 12, 25,  6,  2,  4, 10],
+        [3, 21,  3, 13, 28,  7,  2,  4, 10],
+        [4, 24,  4, 15, 32,  8,  2,  5, 10],
+        [5, 27,  4, 17, 35,  9,  2,  5, 10],
+        [6, 30,  5, 19, 39, 10,  2,  6, 10],
+        [7, 34,  5, 21, 42, 11,  2,  7, 10],
+        [8, 37,  6, 23, 46, 12,  2,  7, 10],
+        [9, 40,  6, 25, 49, 13,  2,  8, 10],
+        [10, 43,  7, 27, 53, 14,  2,  8, 10],
+        [11, 46,  7, 29, 56, 15,  2,  9, 10],
+        [12, 50,  8, 31, 60, 16,  2, 10, 10],
+        [13, 52,  8, 33, 62, 17,  2, 10, 10],
+        [14, 54,  9, 35, 65, 18,  2, 11, 10],
+        [15, 56, 10, 37, 68, 19,  3, 12, 10]
+      ],
+      "relics": [
+        {
+          "name": "精神力/知力上昇、生命力/持久力低下",
+          "diffByLevel": [
+            { "vigor": -1, "mind": 1, "endurance": -1, "intelligence": 2 },
+            { "vigor": -1, "mind": 2, "endurance": -1, "intelligence": 5 },
+            { "vigor": -2, "mind": 2, "endurance": -1, "intelligence": 8 },
+            { "vigor": -2, "mind": 3, "endurance": -1, "intelligence": 11 },
+            { "vigor": -3, "mind": 3, "endurance": -2, "intelligence": 14 },
+            { "vigor": -4, "mind": 4, "endurance": -2, "intelligence": 17 },
+            { "vigor": -4, "mind": 5, "endurance": -2, "intelligence": 20 },
+            { "vigor": -5, "mind": 6, "endurance": -2, "intelligence": 23 },
+            { "vigor": -6, "mind": 6, "endurance": -3, "intelligence": 26 },
+            { "vigor": -6, "mind": 7, "endurance": -3, "intelligence": 29 },
+            { "vigor": -7, "mind": 8, "endurance": -3, "intelligence": 32 },
+            { "vigor": -8, "mind": 9, "endurance": -4, "intelligence": 35 },
+            { "vigor": -8, "mind": 9, "endurance": -4, "intelligence": 35 },
+            { "vigor": -8, "mind": 9, "endurance": -4, "intelligence": 35 },
+            { "vigor": -8, "mind": 9, "endurance": -4, "intelligence": 35 }
+          ]
+        },
+        {
+          "name": "神秘上昇、生命力低下",
+          "diffByLevel": [
+            { "vigor": -1, "arcane": 2 },
+            { "vigor": -1, "arcane": 3 },
+            { "vigor": -1, "arcane": 4 },
+            { "vigor": -1, "arcane": 6 },
+            { "vigor": -2, "arcane": 7 },
+            { "vigor": -2, "arcane": 8 },
+            { "vigor": -2, "arcane": 10 },
+            { "vigor": -2, "arcane": 11 },
+            { "vigor": -3, "arcane": 12 },
+            { "vigor": -3, "arcane": 14 },
+            { "vigor": -3, "arcane": 15 },
+            { "vigor": -4, "arcane": 17 },
+            { "vigor": -4, "arcane": 17 },
+            { "vigor": -4, "arcane": 17 },
+            { "vigor": -4, "arcane": 17 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "復讐者",
+      "levels": [
+        [1,  6,  7,  3,  2,  2,  4,  5, 12],
+        [2, 11, 11,  4,  6,  6,  7, 15, 12],
+        [3, 13, 12,  5,  7,  7,  9, 18, 12],
+        [4, 15, 14,  6,  8,  8, 11, 21, 12],
+        [5, 17, 16,  8,  9,  9, 13, 24, 12],
+        [6, 19, 17,  9, 10, 10, 15, 27, 12],
+        [7, 21, 19, 11, 12, 12, 17, 30, 12],
+        [8, 23, 21, 12, 13, 13, 19, 33, 12],
+        [9, 25, 22, 13, 14, 14, 21, 36, 12],
+        [10, 27, 24, 15, 15, 15, 23, 39, 12],
+        [11, 29, 26, 16, 16, 16, 25, 42, 12],
+        [12, 32, 28, 18, 18, 18, 27, 45, 12],
+        [13, 33, 29, 19, 19, 19, 28, 47, 12],
+        [14, 34, 30, 20, 20, 20, 29, 49, 12],
+        [15, 35, 31, 21, 21, 21, 30, 51, 12]
+      ],
+      "relics": [
+        {
+          "name": "生命力/持久力上昇、精神力低下",
+          "diffByLevel": [
+            { "vigor": 1, "mind": -1, "endurance": 1 },
+            { "vigor": 1, "mind": -1, "endurance": 1 },
+            { "vigor": 1, "mind": -2, "endurance": 1 },
+            { "vigor": 2, "mind": -3, "endurance": 2 },
+            { "vigor": 2, "mind": -4, "endurance": 2 },
+            { "vigor": 2, "mind": -5, "endurance": 2 },
+            { "vigor": 3, "mind": -6, "endurance": 3 },
+            { "vigor": 3, "mind": -7, "endurance": 3 },
+            { "vigor": 3, "mind": -8, "endurance": 3 },
+            { "vigor": 4, "mind": -9, "endurance": 4 },
+            { "vigor": 4, "mind": -10, "endurance": 4 },
+            { "vigor": 5, "mind": -11, "endurance": 5 },
+            { "vigor": 5, "mind": -11, "endurance": 5 },
+            { "vigor": 5, "mind": -11, "endurance": 5 },
+            { "vigor": 5, "mind": -11, "endurance": 5 }
+          ]
+        },
+        {
+          "name": "筋力上昇、信仰低下",
+          "diffByLevel": [
+            { "strength": 2, "faith": -1 },
+            { "strength": 4, "faith": -1 },
+            { "strength": 6, "faith": -1 },
+            { "strength": 8, "faith": -2 },
+            { "strength": 10, "faith": -2 },
+            { "strength": 12, "faith": -3 },
+            { "strength": 14, "faith": -3 },
+            { "strength": 16, "faith": -4 },
+            { "strength": 18, "faith": -4 },
+            { "strength": 20, "faith": -5 },
+            { "strength": 22, "faith": -5 },
+            { "strength": 25, "faith": -6 },
+            { "strength": 25, "faith": -6 },
+            { "strength": 25, "faith": -6 },
+            { "strength": 25, "faith": -6 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "隠者",
+      "levels": [
+        [1,  6,  7,  3,  1,  2,  5,  5, 10],
+        [2, 10, 11,  5,  2,  4, 15, 15, 10],
+        [3, 12, 12,  6,  2,  5, 18, 18, 10],
+        [4, 14, 14,  8,  3,  6, 21, 21, 10],
+        [5, 16, 15,  9,  4,  7, 24, 24, 10],
+        [6, 18, 17, 11,  4,  8, 27, 27, 10],
+        [7, 20, 19, 12,  5, 10, 30, 30, 10],
+        [8, 22, 20, 14,  6, 11, 33, 33, 10],
+        [9, 24, 22, 15,  6, 12, 36, 36, 10],
+        [10, 26, 23, 17,  7, 13, 39, 39, 10],
+        [11, 28, 25, 18,  8, 14, 42, 42, 10],
+        [12, 30, 27, 20,  9, 16, 45, 45, 10],
+        [13, 31, 28, 21, 10, 17, 47, 47, 10],
+        [14, 32, 29, 22, 11, 18, 49, 49, 10],
+        [15, 33, 30, 23, 12, 19, 51, 51, 10]
+      ],
+      "relics": [
+        {
+          "name": "生命力/持久力/技量上昇、知力/信仰低下",
+          "diffByLevel": [
+            { "vigor": 1, "endurance": 1, "dexterity": 2, "intelligence": -1, "faith": -1 },
+            { "vigor": 1, "endurance": 1, "dexterity": 3, "intelligence": -1, "faith": -1 },
+            { "vigor": 1, "endurance": 1, "dexterity": 5, "intelligence": -2, "faith": -2 },
+            { "vigor": 1, "endurance": 2, "dexterity": 6, "intelligence": -3, "faith": -3 },
+            { "vigor": 2, "endurance": 2, "dexterity": 8, "intelligence": -4, "faith": -4 },
+            { "vigor": 2, "endurance": 2, "dexterity": 10, "intelligence": -5, "faith": -5 },
+            { "vigor": 2, "endurance": 3, "dexterity": 11, "intelligence": -5, "faith": -2 },
+            { "vigor": 2, "endurance": 3, "dexterity": 13, "intelligence": -6, "faith": -6 },
+            { "vigor": 3, "endurance": 3, "dexterity": 15, "intelligence": -7, "faith": -7 },
+            { "vigor": 3, "endurance": 4, "dexterity": 16, "intelligence": -8, "faith": -8 },
+            { "vigor": 3, "endurance": 4, "dexterity": 18, "intelligence": -9, "faith": -9 },
+            { "vigor": 4, "endurance": 5, "dexterity": 20, "intelligence": -10, "faith": -10 },
+            { "vigor": 4, "endurance": 5, "dexterity": 20, "intelligence": -10, "faith": -10 },
+            { "vigor": 4, "endurance": 5, "dexterity": 20, "intelligence": -10, "faith": -10 },
+            { "vigor": 4, "endurance": 5, "dexterity": 20, "intelligence": -10, "faith": -10 }
+          ]
+        },
+        {
+          "name": "知力/信仰上昇、精神力低下",
+          "diffByLevel": [
+            { "mind": -2, "intelligence": 2, "faith": 2 },
+            { "mind": -3, "intelligence": 2, "faith": 2 },
+            { "mind": -4, "intelligence": 3, "faith": 3 },
+            { "mind": -5, "intelligence": 4, "faith": 4 },
+            { "mind": -6, "intelligence": 5, "faith": 5 },
+            { "mind": -7, "intelligence": 6, "faith": 6 },
+            { "mind": -8, "intelligence": 7, "faith": 7 },
+            { "mind": -9, "intelligence": 8, "faith": 8 },
+            { "mind": -10, "intelligence": 9, "faith": 9 },
+            { "mind": -11, "intelligence": 10, "faith": 10 },
+            { "mind": -12, "intelligence": 11, "faith": 11 },
+            { "mind": -13, "intelligence": 12, "faith": 12 },
+            { "mind": -13, "intelligence": 12, "faith": 12 },
+            { "mind": -13, "intelligence": 12, "faith": 12 },
+            { "mind": -13, "intelligence": 12, "faith": 12 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "執行者",
+      "levels": [
+        [1,  7,  2,  3,  5,  8,  2,  2, 28],
+        [2, 14,  3,  5,  9, 20,  3,  3, 28],
+        [3, 16,  3,  6, 10, 24,  3,  3, 28],
+        [4, 19,  4,  8, 11, 28,  3,  3, 28],
+        [5, 21,  4, 10, 12, 32,  4,  3, 28],
+        [6, 24,  5, 12, 14, 36,  4,  3, 28],
+        [7, 27,  6, 14, 15, 40,  5,  4, 28],
+        [8, 29,  6, 16, 16, 44,  5,  4, 28],
+        [9, 32,  7, 18, 18, 48,  5,  4, 28],
+        [10, 34,  7, 20, 19, 52,  6,  4, 28],
+        [11, 37,  8, 22, 20, 56,  6,  4, 28],
+        [12, 40,  9, 24, 22, 60,  7,  5, 28],
+        [13, 42,  9, 25, 23, 61,  7,  5, 28],
+        [14, 44, 10, 26, 24, 62,  7,  5, 28],
+        [15, 46, 11, 27, 25, 63,  8,  6, 28]
+      ],
+      "relics": [
+        {
+          "name": "生命力/持久力上昇、神秘低下",
+          "diffByLevel": [
+            { "vigor": 1, "endurance": 1, "arcane": -2 },
+            { "vigor": 1, "endurance": 1, "arcane": -3 },
+            { "vigor": 1, "endurance": 1, "arcane": -4 },
+            { "vigor": 2, "endurance": 2, "arcane": -5 },
+            { "vigor": 2, "endurance": 2, "arcane": -6 },
+            { "vigor": 2, "endurance": 3, "arcane": -7 },
+            { "vigor": 3, "endurance": 4, "arcane": -8 },
+            { "vigor": 4, "endurance": 4, "arcane": -9 },
+            { "vigor": 3, "endurance": 4, "arcane": -10 },
+            { "vigor": 4, "endurance": 5, "arcane": -11 },
+            { "vigor": 4, "endurance": 5, "arcane": -12 },
+            { "vigor": 5, "endurance": 6, "arcane": -13 },
+            { "vigor": 5, "endurance": 6, "arcane": -13 },
+            { "vigor": 5, "endurance": 6, "arcane": -13 },
+            { "vigor": 5, "endurance": 6, "arcane": -13 }
+          ]
+        },
+        {
+          "name": "技量/神秘上昇、生命力低下",
+          "diffByLevel": [
+            { "vigor": -1, "dexterity": 1, "arcane": 1 },
+            { "vigor": -1, "dexterity": 2, "arcane": 1 },
+            { "vigor": -2, "dexterity": 3, "arcane": 2 },
+            { "vigor": -2, "dexterity": 4, "arcane": 3 },
+            { "vigor": -3, "dexterity": 5, "arcane": 3 },
+            { "vigor": -3, "dexterity": 6, "arcane": 4 },
+            { "vigor": -4, "dexterity": 7, "arcane": 5 },
+            { "vigor": -4, "dexterity": 8, "arcane": 6 },
+            { "vigor": -5, "dexterity": 9, "arcane": 6 },
+            { "vigor": -5, "dexterity": 10, "arcane": 7 },
+            { "vigor": -6, "dexterity": 11, "arcane": 8 },
+            { "vigor": -7, "dexterity": 12, "arcane": 9 },
+            { "vigor": -7, "dexterity": 12, "arcane": 9 },
+            { "vigor": -7, "dexterity": 12, "arcane": 9 },
+            { "vigor": -7, "dexterity": 12, "arcane": 9 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "学者",
+      "levels": [
+        [1,  7,  4,  3,  1,  2,  4,  2, 50],
+        [2, 14,  6,  5,  2,  4,  7,  4, 50],
+        [3, 16,  7,  6,  3,  5,  8,  4, 50],
+        [4, 18,  8,  8,  4,  6, 10,  5, 50],
+        [5, 20,  9, 10,  5,  7, 12,  6, 50],
+        [6, 22, 10, 11,  6,  8, 14,  7, 50],
+        [7, 25, 11, 13,  7,  9, 16,  8, 50],
+        [8, 27, 12, 15,  8, 10, 17,  8, 50],
+        [9, 29, 13, 16,  9, 11, 19,  9, 50],
+        [10, 31, 14, 18, 10, 12, 21, 10, 50],
+        [11, 33, 15, 20, 11, 13, 23, 11, 50],
+        [12, 36, 17, 22, 12, 15, 25, 12, 50],
+        [13, 37, 18, 23, 12, 16, 26, 13, 50],
+        [14, 39, 19, 24, 13, 17, 27, 14, 50],
+        [15, 41, 20, 25, 14, 18, 28, 15, 50]
+      ],
+      "relics": [
+        {
+          "name": "精神力上昇、生命力低下",
+          "diff": { "vigor": -3, "mind": 9 }
+        },
+        {
+          "name": "持久力/技量上昇、知力/神秘低下",
+          "diff": { "endurance": 6, "dexterity": 40, "intelligence": -4, "arcane": -20 }
+        }
+      ]
+    },
+    {
+      "name": "葬儀屋",
+      "levels": [
+        [1,  7,  4,  3,  5,  2,  2,  5, 10],
+        [2, 14,  6,  5, 18,  4,  2, 17, 10],
+        [3, 16,  6,  6, 20,  4,  2, 19, 10],
+        [4, 19,  7,  7, 23,  5,  2, 21, 10],
+        [5, 22,  7,  9, 25,  6,  2, 23, 10],
+        [6, 25,  8, 10, 28,  6,  2, 25, 10],
+        [7, 28,  9, 12, 31,  7,  3, 27, 10],
+        [8, 30,  9, 13, 33,  8,  3, 29, 10],
+        [9, 33, 10, 14, 36,  8,  3, 31, 10],
+        [10, 36, 10, 16, 38,  9,  3, 33, 10],
+        [11, 39, 11, 17, 41, 10,  3, 35, 10],
+        [12, 42, 12, 19, 44, 11,  4, 37, 10],
+        [13, 44, 12, 20, 46, 11,  4, 38, 10],
+        [14, 46, 13, 21, 48, 12,  4, 39, 10],
+        [15, 48, 14, 22, 50, 13,  5, 41, 10]
+      ],
+      "relics": [
+        {
+          "name": "技量上昇、生命力/信仰低下",
+          "diff": { "vigor": -5, "dexterity": 19, "faith": -13 }
+        },
+        {
+          "name": "精神力/信仰上昇、筋力低下",
+          "diff": { "mind": 9, "strength": -15, "faith": 9 }
+        }
+      ]
+    }
+  ]
+}

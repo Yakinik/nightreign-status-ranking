@@ -1,0 +1,256 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #1a1a2e;
+  border-radius: 8px;
+}
+
+.levelControl {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #c8b88a;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.levelControl input[type="range"] {
+  width: 200px;
+  accent-color: #c8b88a;
+}
+
+.levelValue {
+  min-width: 28px;
+  text-align: center;
+  font-size: 20px;
+  color: #e8d9a8;
+}
+
+.tableWrapper {
+  border-radius: 8px;
+  border: 1px solid #2a2a4a;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.table thead {
+  background: #16213e;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table th {
+  padding: 10px 8px;
+  color: #8a8aaa;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 2px solid #2a2a4a;
+  transition: color 0.15s;
+}
+
+.table th:hover {
+  color: #c8b88a;
+}
+
+.activeSort {
+  color: #e8d9a8 !important;
+  background: rgba(200, 184, 138, 0.08);
+}
+
+.sortArrow {
+  font-size: 18px !important;
+  vertical-align: middle;
+}
+
+.rankCol {
+  width: 36px;
+  cursor: default !important;
+}
+
+.nameCol {
+  width: 100px;
+  text-align: left !important;
+  cursor: default !important;
+}
+
+.relicCol {
+  cursor: default !important;
+}
+
+.statCol {
+  min-width: 52px;
+}
+
+.row {
+  border-bottom: 1px solid #1a1a3e;
+  transition: background 0.15s;
+}
+
+.row:hover {
+  background: rgba(200, 184, 138, 0.04);
+}
+
+.rankCell {
+  text-align: center;
+  color: #6a6a8a;
+  font-weight: 700;
+  padding: 8px;
+}
+
+.row:nth-child(1) .rankCell {
+  color: #ffd700;
+}
+
+.row:nth-child(2) .rankCell {
+  color: #c0c0c0;
+}
+
+.row:nth-child(3) .rankCell {
+  color: #cd7f32;
+}
+
+.nameCell {
+  padding: 8px;
+  color: #e0d8c0;
+  font-weight: 600;
+}
+
+.approxIcon {
+  font-size: 14px !important;
+  color: #e6a817;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.relicCell {
+  padding: 0 8px;
+  text-align: center;
+}
+
+.statCell {
+  text-align: center;
+  padding: 8px;
+  color: #b0b0c0;
+  font-variant-numeric: tabular-nums;
+}
+
+.maxVal {
+  color: #5bc0de;
+  font-weight: 700;
+}
+
+.minVal {
+  color: #d9534f;
+}
+
+.relicLabelText {
+  font-size: 11px;
+  color: #9a9ab0;
+  white-space: normal;
+  line-height: 1.4;
+  display: inline-block;
+  text-align: left;
+}
+
+/* Character filter */
+.filterTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.filterIcon {
+  font-size: 16px !important;
+  color: #6a6a8a;
+  vertical-align: middle;
+  transition: color 0.15s;
+}
+
+.filterIconActive {
+  font-size: 16px !important;
+  color: #c8b88a;
+  vertical-align: middle;
+  transition: color 0.15s;
+}
+
+.filterTrigger:hover .filterIcon,
+.filterTrigger:hover .filterIconActive {
+  color: #e8d9a8;
+}
+
+.filterPopover {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 180px;
+  background: #1a1a2e;
+  border: 1px solid #3a3a5a;
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.filterActions {
+  display: flex;
+  gap: 8px;
+  padding: 4px 12px 8px;
+  border-bottom: 1px solid #2a2a4a;
+  margin-bottom: 4px;
+}
+
+.filterActionBtn {
+  background: transparent;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  color: #8a8aaa;
+  font-size: 11px;
+  padding: 2px 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterActionBtn:hover {
+  border-color: #c8b88a;
+  color: #c8b88a;
+}
+
+.filterItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  color: #b0b0c0;
+  font-weight: 400;
+  transition: background 0.1s;
+}
+
+.filterItem:hover {
+  background: rgba(200, 184, 138, 0.06);
+}
+
+.filterItem input[type="checkbox"] {
+  accent-color: #c8b88a;
+}
