@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { useAtom } from 'jotai';
+import { useState, useRef, useEffect, useCallback } from "react";
+import { useAtom } from "jotai";
 import {
   selectedLevelAtom,
   sortKeyAtom,
@@ -9,22 +9,29 @@ import {
   characterFilterAtom,
   allCharacterNamesAtom,
   getStatValue,
-} from '@/entities/character';
-import type { SortKey, StatKey, DerivedStatKey } from '@/entities/character';
-import { useRankedCharacters } from '@/features/stat-ranking';
-import type { RankedEntry } from '@/features/stat-ranking';
-import { STAT_LABELS, DERIVED_LABELS } from '@/shared/lib/stat-labels';
-import { MIN_LEVEL, MAX_LEVEL } from '@/shared/config/constants';
-import ArrowDropDown from '@mui/icons-material/ArrowDropDown';
-import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
-import FilterAlt from '@mui/icons-material/FilterAlt';
-import FilterAltOutlined from '@mui/icons-material/FilterAltOutlined';
-import WarningAmber from '@mui/icons-material/WarningAmber';
-import styles from './RankingTable.module.css';
+} from "@/entities/character";
+import type { SortKey, StatKey, DerivedStatKey } from "@/entities/character";
+import { useRankedCharacters } from "@/features/stat-ranking";
+import type { RankedEntry } from "@/features/stat-ranking";
+import { STAT_LABELS, DERIVED_LABELS } from "@/shared/lib/stat-labels";
+import { MIN_LEVEL, MAX_LEVEL } from "@/shared/config/constants";
+import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
+import FilterAlt from "@mui/icons-material/FilterAlt";
+import FilterAltOutlined from "@mui/icons-material/FilterAltOutlined";
+import WarningAmber from "@mui/icons-material/WarningAmber";
+import styles from "./RankingTable.module.css";
 
-const DERIVED_KEYS: DerivedStatKey[] = ['HP', 'FP', 'stamina'];
+const DERIVED_KEYS: DerivedStatKey[] = ["HP", "FP", "stamina"];
 const STAT_KEYS: StatKey[] = [
-  'vigor', 'mind', 'endurance', 'strength', 'dexterity', 'intelligence', 'faith', 'arcane',
+  "vigor",
+  "mind",
+  "endurance",
+  "strength",
+  "dexterity",
+  "intelligence",
+  "faith",
+  "arcane",
 ];
 
 function getLabel(key: SortKey): string {
@@ -44,10 +51,10 @@ export function RankingTable() {
 
   const handleSort = (key: SortKey) => {
     if (sortKey === key) {
-      setSortDirection((d) => (d === 'desc' ? 'asc' : 'desc'));
+      setSortDirection((d) => (d === "desc" ? "asc" : "desc"));
     } else {
       setSortKey(key);
-      setSortDirection('desc');
+      setSortDirection("desc");
     }
   };
 
@@ -76,48 +83,43 @@ export function RankingTable() {
           />
           <span className={styles.levelValue}>{level}</span>
         </label>
-
       </div>
 
       <div className={styles.tableWrapper}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th className={styles.rankCol}>#</th>
-              <CharacterFilterTh
-                allNames={allNames}
-                selected={characterFilter}
-                onChange={setCharacterFilter}
-                isActive={isFilterActive}
-              />
-              <th className={styles.relicCol}>遺物</th>
-              {allColumns.map((key) => (
-                <th
-                  key={key}
-                  className={`${styles.statCol} ${sortKey === key ? styles.activeSort : ''}`}
-                  onClick={() => handleSort(key)}
-                >
-                  {getLabel(key)}
-                  {sortKey === key && (
-                    sortDirection === 'desc'
-                      ? <ArrowDropDown className={styles.sortArrow} />
-                      : <ArrowDropUp className={styles.sortArrow} />
-                  )}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {ranked.map((entry, idx) => (
-              <CharacterRow
-                key={`${entry.character.name}-${idx}`}
-                entry={entry}
-                allColumns={allColumns}
-                columnExtremes={columnExtremes}
-              />
+        <div className={styles.table}>
+          <div className={styles.headerRow}>
+            <div className={`${styles.rankCol} ${styles.headerCell}`}>#</div>
+            <CharacterFilterTh
+              allNames={allNames}
+              selected={characterFilter}
+              onChange={setCharacterFilter}
+              isActive={isFilterActive}
+            />
+            {allColumns.map((key) => (
+              <div
+                key={key}
+                className={`${styles.headerCell} ${sortKey === key ? styles.activeSort : ""}`}
+                onClick={() => handleSort(key)}
+              >
+                {getLabel(key)}
+                {sortKey === key &&
+                  (sortDirection === "desc" ? (
+                    <ArrowDropDown className={styles.sortArrow} />
+                  ) : (
+                    <ArrowDropUp className={styles.sortArrow} />
+                  ))}
+              </div>
             ))}
-          </tbody>
-        </table>
+          </div>
+          {ranked.map((entry, idx) => (
+            <CharacterRow
+              key={`${entry.character.name}-${idx}`}
+              entry={entry}
+              allColumns={allColumns}
+              columnExtremes={columnExtremes}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -133,39 +135,42 @@ function CharacterRow({
   columnExtremes: Record<SortKey, { max: number; min: number }>;
 }) {
   return (
-    <tr className={styles.row}>
-      <td className={styles.rankCell}>{entry.rank}</td>
-      <td className={styles.nameCell}>
+    <div className={styles.row}>
+      <div className={`${styles.rankCell} ${styles.bodyCell}`}>
+        {entry.rank}
+      </div>
+      <div className={`${styles.nameCell} ${styles.bodyCell}`}>
+        <span className={styles.characterName}>{entry.character.name}</span>
+        <span className={styles.relicLabelText} title={entry.relicLabel}>
+          {entry.relicLabel.split("\n").map((line, i) => (
+            <span key={i}>
+              {i > 0 && <br />}
+              {line}
+            </span>
+          ))}
+        </span>
         {entry.hasApproximateRelics && (
           <WarningAmber
             className={styles.approxIcon}
             titleAccess="遺物効果はレベル別データ未掲載のため概算値です"
           />
         )}
-        {entry.character.name}
-      </td>
-      <td className={styles.relicCell}>
-        <span className={styles.relicLabelText} title={entry.relicLabel}>
-          {entry.relicLabel.split('\n').map((line, i) => (
-            <span key={i}>{i > 0 && <br />}{line}</span>
-          ))}
-        </span>
-      </td>
+      </div>
       {allColumns.map((key) => {
         const val = getStatValue(entry.stats, entry.derived, key);
         const { max, min } = columnExtremes[key];
         const isMax = val === max && max !== min;
         const isMin = val === min && max !== min;
         return (
-          <td
+          <div
             key={key}
-            className={`${styles.statCell} ${isMax ? styles.maxVal : ''} ${isMin ? styles.minVal : ''}`}
+            className={`${styles.statCell} ${styles.bodyCell} ${isMax ? styles.maxVal : ""} ${isMin ? styles.minVal : ""}`}
           >
             {val}
-          </td>
+          </div>
         );
       })}
-    </tr>
+    </div>
   );
 }
 
@@ -181,21 +186,19 @@ function CharacterFilterTh({
   isActive: boolean;
 }) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLTableCellElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = useCallback(
-    (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    },
-    [],
-  );
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (ref.current && !ref.current.contains(e.target as Node)) {
+      setOpen(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (open) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [open, handleClickOutside]);
 
@@ -213,17 +216,18 @@ function CharacterFilterTh({
   const selectedSet = new Set(selected);
 
   return (
-    <th ref={ref} className={styles.nameCol} style={{ position: 'relative' }}>
-      <span
-        className={styles.filterTrigger}
-        onClick={() => setOpen((o) => !o)}
-      >
+    <div ref={ref} className={`${styles.nameCol} ${styles.headerCell}`}>
+      <span className={styles.filterTrigger} onClick={() => setOpen((o) => !o)}>
         キャラクター
-        {isActive
-          ? <FilterAlt className={styles.filterIconActive} />
-          : <FilterAltOutlined className={styles.filterIcon} />
-        }
+        {isActive ? (
+          <FilterAlt className={styles.filterIconActive} />
+        ) : (
+          <FilterAltOutlined className={styles.filterIcon} />
+        )}
       </span>
+      {open && (
+        <div className={styles.filterBackdrop} onClick={() => setOpen(false)} />
+      )}
       {open && (
         <div className={styles.filterPopover}>
           <div className={styles.filterActions}>
@@ -246,6 +250,6 @@ function CharacterFilterTh({
           ))}
         </div>
       )}
-    </th>
+    </div>
   );
 }

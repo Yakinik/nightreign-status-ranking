@@ -35,3 +35,10 @@
 .link:hover {
   text-decoration: none;
 }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .title {
+    font-size: 18px;
+  }
+}
