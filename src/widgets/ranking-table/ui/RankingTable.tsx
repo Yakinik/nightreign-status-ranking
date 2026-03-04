@@ -20,6 +20,8 @@ import ArrowDropUp from "@mui/icons-material/ArrowDropUp";
 import FilterAlt from "@mui/icons-material/FilterAlt";
 import FilterAltOutlined from "@mui/icons-material/FilterAltOutlined";
 import WarningAmber from "@mui/icons-material/WarningAmber";
+import Fullscreen from "@mui/icons-material/Fullscreen";
+import FullscreenExit from "@mui/icons-material/FullscreenExit";
 import styles from "./RankingTable.module.css";
 
 const DERIVED_KEYS: DerivedStatKey[] = ["HP", "FP", "stamina"];
@@ -46,6 +48,7 @@ export function RankingTable() {
   const [characterFilter, setCharacterFilter] = useAtom(characterFilterAtom);
   const [allNames] = useAtom(allCharacterNamesAtom);
   const ranked = useRankedCharacters();
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const isFilterActive = characterFilter.length < allNames.length;
 
@@ -70,8 +73,15 @@ export function RankingTable() {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${isFullscreen ? styles.fullscreen : ""}`}>
       <div className={styles.controls}>
+        <button
+          className={styles.fullscreenBtn}
+          onClick={() => setIsFullscreen((f) => !f)}
+          title={isFullscreen ? "全画面解除" : "全画面表示"}
+        >
+          {isFullscreen ? <FullscreenExit /> : <Fullscreen />}
+        </button>
         <label className={styles.levelControl}>
           <span>Lv.</span>
           <input

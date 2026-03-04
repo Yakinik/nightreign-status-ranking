@@ -219,6 +219,51 @@
   text-align: left;
 }
 
+/* Fullscreen */
+.fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  max-width: none;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  background: #0a0a1a;
+}
+
+.fullscreen .controls {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.fullscreen .tableWrapper {
+  border-radius: 0;
+  border: none;
+  flex: 1;
+  height: auto;
+  width: 100%;
+  max-width: min-content;
+}
+
+.fullscreenBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid #3a3a5a;
+  border-radius: 4px;
+  color: #8a8aaa;
+  cursor: pointer;
+  padding: 4px;
+  transition: all 0.15s;
+}
+
+.fullscreenBtn:hover {
+  border-color: #c8b88a;
+  color: #c8b88a;
+}
+
 /* Character filter */
 .filterTrigger {
   display: inline-flex;
